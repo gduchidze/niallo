@@ -1,3 +1,5 @@
+from os import environ
+
 from flask import Flask, render_template, jsonify, url_for
 from const import get_random_image, get_love_quote
 
@@ -17,4 +19,5 @@ def get_content():
     })
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
