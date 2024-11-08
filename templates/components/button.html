@@ -1,0 +1,20 @@
+{% macro elegant_button(id, text) %}
+<button
+    id="{{ id }}"
+    class="elegant-button px-12 py-4 rounded-full text-lg tracking-widest
+           transform transition-all duration-500 group"
+>
+    <span class="relative inline-flex items-center space-x-2">
+        <!-- Left Icon -->
+        <span class="transform -translate-x-6 opacity-0 transition-all duration-500
+                     group-hover:translate-x-0 group-hover:opacity-100">✧</span>
+
+        <!-- Text -->
+        <span class="relative">{{ text }}</span>
+
+        <!-- Right Icon -->
+        <span class="transform translate-x-6 opacity-0 transition-all duration-500
+                     group-hover:translate-x-0 group-hover:opacity-100">✧</span>
+    </span>
+</button>
+{% endmacro %}

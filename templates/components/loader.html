@@ -1,0 +1,60 @@
+{% macro loader() %}
+<div id="loader" class="hidden">
+    <div class="flex items-center justify-center my-16">
+        <div class="relative w-24 h-24">
+            <!-- Outer Ring -->
+            <div class="absolute inset-0">
+                <div class="absolute inset-0 rounded-full border-2 border-purple-500/20
+                            animate-[spin_3s_linear_infinite]"></div>
+                <div class="absolute inset-[2px] rounded-full border-2 border-purple-400/20
+                            animate-[spin_2.5s_linear_infinite_reverse]"></div>
+                <div class="absolute inset-[4px] rounded-full border-2 border-purple-300/20
+                            animate-[spin_2s_linear_infinite]"></div>
+            </div>
+
+            <!-- Middle Rotating Elements -->
+            <div class="absolute inset-0 animate-[spin_4s_linear_infinite]">
+                <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div class="w-2 h-2 rounded-full bg-purple-400/60 animate-pulse"></div>
+                </div>
+                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
+                    <div class="w-2 h-2 rounded-full bg-purple-400/60 animate-pulse"
+                         style="animation-delay: 0.5s"></div>
+                </div>
+            </div>
+
+            <!-- Inner Rotating Elements -->
+            <div class="absolute inset-0 animate-[spin_3s_linear_infinite_reverse]">
+                <div class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2">
+                    <div class="w-2 h-2 rounded-full bg-purple-400/60 animate-pulse"
+                         style="animation-delay: 1s"></div>
+                </div>
+                <div class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2">
+                    <div class="w-2 h-2 rounded-full bg-purple-400/60 animate-pulse"
+                         style="animation-delay: 1.5s"></div>
+                </div>
+            </div>
+
+            <!-- Center Element -->
+            <div class="absolute inset-0 flex items-center justify-center">
+                <!-- Pulsing Center -->
+                <div class="relative w-4 h-4">
+                    <div class="absolute inset-0 rounded-full bg-purple-500/50 animate-ping"></div>
+                    <div class="absolute inset-0.5 rounded-full bg-purple-400 animate-pulse"></div>
+                </div>
+            </div>
+
+            <!-- Orbiting Particles -->
+            {% for i in range(4) %}
+            <div class="absolute inset-0 animate-[spin_{{ 3 + i }}s_linear_infinite]"
+                 style="transform-origin: center;">
+                <div class="absolute top-0 left-1/2 transform -translate-x-1/2
+                            w-1 h-1 bg-purple-400/40 rounded-full
+                            animate-[pulse_2s_ease-in-out_infinite]"
+                     style="animation-delay: {{ i * 0.5 }}s"></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endmacro %}

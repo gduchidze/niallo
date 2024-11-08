@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% from "components/button.html" import elegant_button %}
+{% from "components/card.html" import content_card %}
+{% from "components/loader.html" import loader %}
+
+{% block content %}
+<!-- Background Effects -->
+<div class="luxury-background"></div>
+<div class="nebula"></div>
+<div class="stars">
+    {% for i in range(50) %}
+    <div class="star" style="left: {{ range(0, 100) | random }}%;
+                            top: {{ range(0, 100) | random }}%;
+                            animation-delay: {{ (i * 0.1) }}s"></div>
+    {% endfor %}
+</div>
+<div class="glitter"></div>
+
+<!-- Main Content -->
+<div class="container mx-auto px-4 min-h-screen flex flex-col items-center justify-center relative z-10">
+    <div class="max-w-4xl mx-auto text-center space-y-12">
+        <!-- Title -->
+        <div class="space-y-8">
+            <h1 class="elegant-title text-6xl md:text-8xl">
+                Nialo
+            </h1>
+
+            <!-- Decorative Line -->
+            <div class="h-px w-32 md:w-48 mx-auto bg-gradient-to-r
+                        from-transparent via-white to-transparent opacity-50"></div>
+
+            <!-- Subtitle -->
+            <h2 class="elegant-subtitle text-2xl md:text-3xl font-light tracking-wide">
+                The Most Elegant Woman in the World
+            </h2>
+        </div>
+
+        <!-- Button -->
+        <div class="transform hover:scale-105 transition-all duration-500 pt-8">
+            {{ elegant_button('showLove', 'Only For Nialo') }}
+        </div>
+    </div>
+
+    <!-- Loader -->
+    {{ loader() }}
+
+    <!-- Content -->
+    <div id="content" class="hidden transition-all duration-700 opacity-0 w-full max-w-2xl mx-auto mt-16">
+        {{ content_card() }}
+    </div>
+</div>
+{% endblock %}
